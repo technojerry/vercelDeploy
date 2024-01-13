@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "e49bf641-c7b6-4bfd-8a2f-38ec1ed89bc3",
+		"name": "Events",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10915659"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eventType\": \"Zoom Call\",\r\n    \"link\": \"https://linkto.com/event\",\r\n    \"venue\": \"Virtual\",\r\n    \"summary\": \"Shahrukh khan is My favourite Hero\",\r\n    \"title\": \"let's be the number one coder around the world\",\r\n    \"description\": \"Hello Everyone my name is Rohtash Singh\",\r\n    \"dayOfEvent\": \"2023-10-31\",\r\n    \"eventTiming\": \"14:30\",\r\n    \"lastDateToRegister\": \"2023-06-17\",\r\n    \"fees\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{authUrl}}/events",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "readEvents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{authUrl}}/events/read",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"events",
+						"read"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "readEvents",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"registered\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{authUrl}}/events/read",
+							"host": [
+								"{{authUrl}}"
+							],
+							"path": [
+								"events",
+								"read"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "630"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"276-Vu4MDmGouYZXzUdv09MJl6FMet4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 10:14:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"documents\": [\n            {\n                \"_id\": \"647c5731183ec566eef69305\",\n                \"eventType\": \"Webinar\",\n                \"link\": \"https://linkto.com/event\",\n                \"venue\": \"Virtual\",\n                \"summary\": \"To Be Generated Once the Event Is Over\",\n                \"title\": \"Narendra Modi is inaugurating Ram Mandir\",\n                \"description\": \"An Introductory call to byte school\",\n                \"dayOfEvent\": \"2023-10-31T00:00:00.000Z\",\n                \"eventTiming\": \"14:30\",\n                \"lastDateToRegister\": \"2023-06-17T00:00:00.000Z\",\n                \"host\": \"643292e72ded96c451bb3868\",\n                \"fees\": \"0\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-04T09:19:45.130Z\",\n                \"updatedAt\": \"2023-06-04T09:19:45.130Z\",\n                \"__v\": 0\n            }\n        ],\n        \"totalPages\": 1,\n        \"currentPage\": 1,\n        \"limit\": 10,\n        \"count\": 1\n    },\n    \"error\": null\n}"
+				},
+				{
+					"name": "readEvents",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"my\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{authUrl}}/events/read",
+							"host": [
+								"{{authUrl}}"
+							],
+							"path": [
+								"events",
+								"read"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "795"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31b-R03cImy30neQwRjEuf/XmX/1fkI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 10:14:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"documents\": [\n            {\n                \"_id\": \"647c5731183ec566eef69305\",\n                \"eventType\": \"Webinar\",\n                \"link\": \"https://linkto.com/event\",\n                \"venue\": \"Virtual\",\n                \"summary\": \"The summary must be equal to the Shahrukh Khan Always love that person\",\n                \"title\": \"IShahrukh khan Challeya song\",\n                \"description\": \"This is the New Event made by Rohtash Singh\",\n                \"dayOfEvent\": \"2023-10-31T00:00:00.000Z\",\n                \"eventTiming\": \"08:30\",\n                \"lastDateToRegister\": \"2023-06-17T00:00:00.000Z\",\n                \"host\": {\n                    \"_id\": \"643292e72ded96c451bb3868\",\n                    \"email\": \"ahmedsurya1000@gmail.com\",\n                    \"username\": \"am101\",\n                    \"provider\": \"def\",\n                    \"createdAt\": \"2023-04-09T10:26:47.954Z\",\n                    \"updatedAt\": \"2023-04-09T10:26:47.954Z\",\n                    \"__v\": 0\n                },\n                \"fees\": \"0\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-04T09:19:45.130Z\",\n                \"updatedAt\": \"2023-06-04T09:19:45.130Z\",\n                \"__v\": 0\n            }\n        ],\n        \"totalPages\": 1,\n        \"currentPage\": 1,\n        \"limit\": 10,\n        \"count\": 1\n    },\n    \"error\": null\n}",
+					"cookie": []
+				},
+				{
+					"name": "readEvents",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{authUrl}}/events/read",
+							"host": [
+								"{{authUrl}}"
+							],
+							"path": [
+								"events",
+								"read"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4587"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11eb-nqq1hUm+/uMNKX2ijzKOdd2vQsc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 10:15:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"documents\": [\n            {\n                \"_id\": \"647c54b2f590899a05efddfa\",\n                \"eventType\": \"Workshop\",\n                \"link\": \"https://linkto.com/event1\",\n                \"venue\": \"In-person\",\n                \"summary\": \"Learn the art of storytelling with interactive workshops\",\n                \"title\": \"Storytelling Mastery Workshop\",\n                \"description\": \"Unlock the secrets of captivating storytelling in this exclusive workshop. Limited seats available!\",\n                \"dayOfEvent\": \"2023-11-15T00:00:00.000Z\",\n                \"eventTiming\": \"15:00\",\n                \"lastDateToRegister\": \"2023-11-10T00:00:00.000Z\",\n                \"fees\": \"20\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T09:09:06.218Z\",\n                \"updatedAt\": \"2023-06-10T09:09:06.218Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c54b9f590899a05efddfc\",\n                \"eventType\": \"Conference\",\n                \"link\": \"https://linkto.com/event2\",\n                \"venue\": \"Virtual\",\n                \"summary\": \"Explore the latest trends and innovations in technology\",\n                \"title\": \"Tech Summit 2023\",\n                \"description\": \"Join us for a virtual conference showcasing cutting-edge technologies and insightful discussions\",\n                \"dayOfEvent\": \"2023-11-20T00:00:00.000Z\",\n                \"eventTiming\": \"10:00\",\n                \"lastDateToRegister\": \"2023-11-15T00:00:00.000Z\",\n                \"fees\": \"0\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T09:09:13.640Z\",\n                \"updatedAt\": \"2023-06-10T09:09:13.640Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c54bdf590899a05efddfe\",\n                \"eventType\": \"Seminar\",\n                \"link\": \"https://linkto.com/event3\",\n                \"venue\": \"Hybrid\",\n                \"summary\": \"Deep dive into the world of artificial intelligence\",\n                \"title\": \"AI Masterclass\",\n                \"description\": \"A comprehensive seminar on artificial intelligence and machine learning\",\n                \"dayOfEvent\": \"2023-11-25T00:00:00.000Z\",\n                \"eventTiming\": \"14:30\",\n                \"lastDateToRegister\": \"2023-11-20T00:00:00.000Z\",\n                \"fees\": \"15\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T09:09:17.389Z\",\n                \"updatedAt\": \"2023-06-10T09:09:17.389Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c54cbf590899a05efde04\",\n                \"eventType\": \"Webinar\",\n                \"link\": \"https://linkto.com/event4\",\n                \"venue\": \"Virtual\",\n                \"summary\": \"Unlock the secrets of successful entrepreneurship\",\n                \"title\": \"Entrepreneurship Webinar\",\n                \"description\": \"Join industry experts as they share insights on building a successful startup\",\n                \"dayOfEvent\": \"2023-11-30T00:00:00.000Z\",\n                \"eventTiming\": \"12:00\",\n                \"lastDateToRegister\": \"2023-11-25T00:00:00.000Z\",\n                \"fees\": \"0\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T09:09:31.775Z\",\n                \"updatedAt\": \"2023-06-10T09:09:31.775Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c54c7f590899a05efde02\",\n                \"eventType\": \"Workshop\",\n                \"link\": \"https://linkto.com/event5\",\n                \"venue\": \"In-person\",\n                \"summary\": \"Enhance your photography skills with hands-on workshops\",\n                \"title\": \"Photography Workshop\",\n                \"description\": \"Learn from professional photographers and improve your photography skills\",\n                \"dayOfEvent\": \"2023-12-05T00:00:00.000Z\",\n                \"eventTiming\": \"16:00\",\n                \"lastDateToRegister\": \"2023-12-01T00:00:00.000Z\",\n                \"fees\": \"25\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T09:09:27.385Z\",\n                \"updatedAt\": \"2023-06-10T09:09:27.385Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c5a736c947d8e7d8c6f7d\",\n                \"eventType\": \"Conference\",\n                \"link\": \"https://linkto.com/event6\",\n                \"venue\": \"In-person\",\n                \"summary\": \"Dive into the future of robotics and automation\",\n                \"title\": \"Robotics Summit 2023\",\n                \"description\": \"Join experts and enthusiasts to discuss the latest developments in robotics and automation\",\n                \"dayOfEvent\": \"2023-12-10T00:00:00.000Z\",\n                \"eventTiming\": \"11:30\",\n                \"lastDateToRegister\": \"2023-12-05T00:00:00.000Z\",\n                \"fees\": \"15\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T10:15:15.722Z\",\n                \"updatedAt\": \"2023-06-10T10:15:15.722Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c5a7c6c947d8e7d8c6f80\",\n                \"eventType\": \"Seminar\",\n                \"link\": \"https://linkto.com/event7\",\n                \"venue\": \"Virtual\",\n                \"summary\": \"Discover the latest advancements in space exploration\",\n                \"title\": \"Space Science Seminar\",\n                \"description\": \"A virtual seminar featuring experts from the field of space science and exploration\",\n                \"dayOfEvent\": \"2023-12-15T00:00:00.000Z\",\n                \"eventTiming\": \"13:45\",\n                \"lastDateToRegister\": \"2023-12-10T00:00:00.000Z\",\n                \"fees\": \"0\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T10:15:24.957Z\",\n                \"updatedAt\": \"2023-06-10T10:15:24.957Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c5a82f590899a05efe043\",\n                \"eventType\": \"Webinar\",\n                \"link\": \"https://linkto.com/event8\",\n                \"venue\": \"Virtual\",\n                \"summary\": \"Explore the wonders of marine life and conservation\",\n                \"title\": \"Marine Biology Webinar\",\n                \"description\": \"Join marine biologists as they share insights on marine life, conservation efforts, and more\",\n                \"dayOfEvent\": \"2023-12-20T00:00:00.000Z\",\n                \"eventTiming\": \"17:30\",\n                \"lastDateToRegister\": \"2023-12-15T00:00:00.000Z\",\n                \"fees\": \"0\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T10:15:30.442Z\",\n                \"updatedAt\": \"2023-06-10T10:15:30.442Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c5a87f590899a05efe045\",\n                \"eventType\": \"Workshop\",\n                \"link\": \"https://linkto.com/event9\",\n                \"venue\": \"In-person\",\n                \"summary\": \"Learn the art of digital illustration\",\n                \"title\": \"Digital Illustration Workshop\",\n                \"description\": \"Hands-on workshop covering the basics of digital illustration, suitable for all skill levels\",\n                \"dayOfEvent\": \"2023-12-25T00:00:00.000Z\",\n                \"eventTiming\": \"14:00\",\n                \"lastDateToRegister\": \"2023-12-20T00:00:00.000Z\",\n                \"fees\": \"30\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T10:15:35.797Z\",\n                \"updatedAt\": \"2023-06-10T10:15:35.797Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"647c5a8cf590899a05efe047\",\n                \"eventType\": \"Conference\",\n                \"link\": \"https://linkto.com/event10\",\n                \"venue\": \"Virtual\",\n                \"summary\": \"A conference for aspiring writers and literature enthusiasts\",\n                \"title\": \"Literary Conclave 2023\",\n                \"description\": \"Join us for insightful discussions, book launches, and literary activities\",\n                \"dayOfEvent\": \"2023-12-30T00:00:00.000Z\",\n                \"eventTiming\": \"09:45\",\n                \"lastDateToRegister\": \"2023-12-25T00:00:00.000Z\",\n                \"fees\": \"0\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2023-06-10T10:15:41.134Z\",\n                \"updatedAt\": \"2023-06-10T10:15:41.134Z\",\n                \"image\": \"https://source.unsplash.com/random/800x600?\",\n                \"__v\": 0\n            }\n        ],\n        \"totalPages\": 1,\n        \"currentPage\": 1,\n        \"limit\": 10,\n        \"count\": 7\n    },\n    \"error\": null\n}",
+					"cookie": []
+				}
+			]
+		},
+		{
+			"name": "registerEvents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eventId\": \"647c5731183ec566eef69305\",\r\n    \"userId\": \"643292e72ded96c451bb3868\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{authUrl}}/events/register",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"events",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventDetails",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "{{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eventId\": \"647c5731183ec566eef69305\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{authUrl}}/events/eventDetails",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"events",
+						"eventDetails"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
