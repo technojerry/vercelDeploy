@@ -1,4 +1,4 @@
-import Event from "./events/Index";
+import Event from "./events";
 export default function Page() {
   return <Event />;
 }

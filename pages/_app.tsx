@@ -1,9 +1,9 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EventProvider from "./events/context/EventContext";
 
 import "../style/globals.css";
 import Layout from "../components/layout/layout";
@@ -40,7 +40,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div>
-        <Component {...pageProps} />
+        <EventProvider>
+          <Component {...pageProps} />
+        </EventProvider>
         <ToastContainer />
       </div>
     </Layout>
@@ -50,7 +52,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div>
-        <Component {...pageProps} />
+        <EventProvider>
+          <Component {...pageProps} />
+        </EventProvider>
         <ToastContainer />
       </div>
     </>

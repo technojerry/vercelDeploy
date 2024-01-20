@@ -10,7 +10,7 @@ interface EventPopupProps {
   onClose: () => void;
 }
 
-const Create: React.FC<EventPopupProps> = ({ onClose }) => {
+const EventPopup: React.FC<EventPopupProps> = ({ onClose }) => {
   const [eventName, setEventName] = useState('');
   const [eventDescription, setEventDescription] = useState('');
   const [isWritingDescription, setIsWritingDescription] = useState(false);
@@ -74,14 +74,14 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
   };
 
   return (
-    <div className=" fixed rounded-md top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-gray-50 p-6 bg-white z-50">
-      <span className="absolute top-2 right-2 p-1 border-2 border-gray-50 rounded-md text-lg cursor-pointer" onClick={onClose}>
+    <div className="  md:[50vw] fixed rounded-md top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-gray-50 p-6 md:pb-6 pb-0 bg-white z-50">
+      <span className="absolute top-2 right-2 p-1 border-2 border-gray-400 hover:border-gray-600 rounded-md text-lg cursor-pointer" onClick={onClose}>
         <GoX size={20} />
       </span>
       <h2 className="text-xl font-bold mb-4">Create Event</h2>
 
       {/* here we are starting the code for form making */}
-      <form onSubmit={handleCreateEvent} className="mb-4 w-[40vw]">
+      <form onSubmit={handleCreateEvent} className="mb-4 md:w-[50vw] w-[75vw]">
         {isWritingDescription && (
           <button
             type="button"
@@ -125,11 +125,20 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
             </button>
           </div>
         )}
-
+        <div className="venue_type">
+          <div className="venues_type w-full flex gap-2 flex-wrap items-center">
+            <div className="mb-4 w-full ">
+              <label htmlFor="venue_type" className='block w-[50%] font-bold text-sm mb-2'>
+                Venue type:
+              </label>
+              <input type="text" placeholder='Venue type' className=" outline-none w-full rounded-md text-sm bg-gray-50 border p-2" />
+            </div>
+          </div>
+        </div>
         <div className="venue">
           <div className="venues w-full flex gap-2 flex-wrap items-center">
-            <div className="mb-4">
-              <label htmlFor="venueType" className="block font-bold  text-sm mb-2">
+            <div className="mb-4 w-1/3">
+              <label htmlFor="venue" className="block font-bold  text-sm mb-2">
                 Type:
               </label>
               <select
@@ -139,12 +148,12 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
                 onChange={(e) => setVenueType(e.target.value)}
                 className="w-full text-sm bg-gray-50 rounded-md  border p-2"
               >
-                <option className='text-sm bg-gray-50' value="online">Online</option>
-                <option className='text-sm bg-gray-50' value="offline">Offline</option>
+                <option className='text-sm bg-gray-100' value="online">Online</option>
+                <option className='text-sm bg-gray-100' value="offline">Offline</option>
               </select>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 w-1/3">
               <label htmlFor="venueDetails" className="block text-sm font-semibold mb-2">
                 Details:
               </label>
@@ -162,8 +171,8 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
         </div>
 
         <div className="Events_date flex flex-col">
-          <div className="dates flex flex-wrap gap-3 items-center">
-            <div className="mb-4">
+          <div className="dates w-full flex flex-wrap md:gap-3 gap-1 items-center">
+            <div className="mb-4 w-1/4">
               <label className="block font-bold text-sm mb-2">
                 Date:
               </label>
@@ -177,7 +186,7 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
               />
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 w-1/4">
               <label htmlFor="eventDateTo" className="block text-sm font-bold mb-2">
                 Time:
               </label>
@@ -190,8 +199,8 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
                 className="w-full rounded-md bg-gray-50 text-sm border p-2"
               />
             </div>
-            <div className="mb-4">
-              <label htmlFor="duration" className="block text-sm font-bold mb-2">
+            <div className="mb-4 w-1/4">
+              <label htmlFor="duration" className="block text-sm mb-2 font-bold">
                 Duration:
               </label>
               <input
@@ -207,8 +216,8 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
         </div>
         <p>This event will take place on the {eventDateFrom} from {time} until {time}</p>
 
-        <div className="attachment mb-4">
-          <label htmlFor="attachment" className="block text-sm font-bold mb-2">
+        <div className="attachment md:mb-4 mb-1 w-[50%]">
+          <label htmlFor="attachment" className="block text-sm font-bold">
             <p><strong> Upload Attachment:</strong></p>
           </label>
           <input
@@ -239,4 +248,4 @@ const Create: React.FC<EventPopupProps> = ({ onClose }) => {
   );
 };
 
-export default Create;
+export default EventPopup;

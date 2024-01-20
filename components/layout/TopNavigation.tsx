@@ -29,9 +29,9 @@ export default function TopNavigation() {
     return true;
   };
   return (
-    <header className="w-full bg-primary-color absolute z-20 left-0 top-0 text-primary-text-color font-primary-family">
+    <header className="w-full bg-primary-color bg-black text-primary-text-color font-primary-family">
       <nav
-        className=" flex items-baseline w-full justify-start p-4 lg:px-8"
+        className=" flex items-center w-full justify-start p-4 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
