@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import eventData from "../api/Events.postman_collection.json";
 
-// Define the types for your event data
+//We defined the eventData interface here
 export interface EventData {
     _id: string;
     eventType: string;
@@ -32,7 +32,6 @@ interface EventProviderProps {
 const EventProvider: React.FC<EventProviderProps> = ({ children }) => {
     const [events, setEvents] = useState<EventData[]>([]);
 
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -43,7 +42,6 @@ const EventProvider: React.FC<EventProviderProps> = ({ children }) => {
                 });
 
                 setEvents(parsedEvents.flat());
-
             } catch (error) {
                 console.error('Error fetching events:', error);
             }
@@ -51,8 +49,6 @@ const EventProvider: React.FC<EventProviderProps> = ({ children }) => {
 
         fetchData();
     }, []);
-
-
 
     return (
         <EventContext.Provider value={{ events }}>

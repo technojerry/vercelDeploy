@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import EventBg from "@/public/images/event_bg.jpg"
 import Image from 'next/image'
+import Card from './Card'
 import Filteration from './filteration'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { EventData, useEvent } from './context/EventContext';
 
 const TopEventbg = () => {
+  const { events } = useEvent();
+  const [filteredEvents, setFilteredEvents] = useState<EventData[]>(events);
+
+  const handleFilter = (filterCriteria: { lookingFor: string; inPlace: string; selectedDate: string }) => {
+    // Implement logic to filter events based on criteria
+    // For now, let's assume you want to filter based on the title
+    const { lookingFor } = filterCriteria;
+    const filtered = events.filter((event) =>
+      event.title.toLowerCase().includes(lookingFor.toLowerCase())
+    );
+
+    // Update the state with filtered events
+    setFilteredEvents(filtered);
+  };
   return (
 
     <>
@@ -34,7 +50,7 @@ const TopEventbg = () => {
         {/* Filteration Card here */}
       </div>
       <div className="filter_option rounded-xl position-absolute px-2 py-1 top-[80%] md:top-[110%] start-50 translate-middle  bg-gray-700 ">
-        <Filteration />
+        <Filteration onFilter={handleFilter} allEvents={events} />
       </div>
     </>
   )

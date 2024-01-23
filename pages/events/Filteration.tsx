@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
+import { EventData } from './context/EventContext';
 
 interface FilterationProps {
-    // Additional props can be added here as needed
+    onFilter: (filterCriteria: { lookingFor: string; inPlace: string; selectedDate: string }) => void;
+    allEvents: EventData[]; // Provide the list of all events
 }
 
-const Filteration: React.FC<FilterationProps> = () => {
+const Filteration: React.FC<FilterationProps> = ({ onFilter, allEvents }) => {
     const [lookingFor, setLookingFor] = useState('');
     const [inPlace, setInPlace] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
@@ -36,11 +38,28 @@ const Filteration: React.FC<FilterationProps> = () => {
     }, []);
 
     const handleFilter = () => {
-        if (!lookingFor || !inPlace || !selectedDate) {
+        if (!lookingFor && !inPlace && !selectedDate) {
             setShowEvents(false);
-            alert('Please fill the entire form');
+            alert('Please enter at least one filter criteria');
             return;
         }
+
+        // Filter events based on criteria
+        const filteredEvents = allEvents.filter((event) => {
+            const titleMatch = event.title.toLowerCase().includes(lookingFor.toLowerCase());
+            const placeMatch = event.venue.toLowerCase().includes(inPlace.toLowerCase());
+            const dateMatch = selectedDate ? event.dayOfEvent === selectedDate : true;
+
+            return titleMatch && placeMatch && dateMatch;
+        });
+
+        // Call the onFilter callback with the filtered events
+        onFilter({ lookingFor, inPlace, selectedDate });
+
+        // Optionally, you can store or update the filtered events in the component state
+        setShowEvents(true);
+        // Update state or perform any other actions with filteredEvents
+        console.log('Filtered events:', filteredEvents);
     };
 
     return (
@@ -81,18 +100,15 @@ const Filteration: React.FC<FilterationProps> = () => {
                             Select Date
                         </option>
                         {dateOptions.map((option) => (
-                            <option
-                                key={option.value}
-                                className="outline-none text-black border-b-2"
-                                value={option.value}
-                            >
+                            <option key={option.value} className="outline-none text-black border-b-2" value={option.value}>
                                 {option.label}
                             </option>
                         ))}
                     </select>
                 </div>
-                <div className="search flex justify-center ">
-                    <div className="search_icon flex items-normal items-center mt-4 gap-2 hover:cursor-pointer lg:mb-0 bg-purple-600 rounded-xl px-3 py-2"> <span className=' text-white font-semibold text-lg md:hidden'>Search</span>
+                <div className="search flex justify-center">
+                    <div className="search_icon flex items-normal items-center mt-4 gap-2 hover:cursor-pointer lg:mb-0 bg-purple-600 rounded-xl px-3 py-2">
+                        <span className=' text-white font-semibold text-lg md:hidden'>Search</span>
                         <FaSearch size={20} color={'white'} className="cursor-pointer" onClick={handleFilter} />
                     </div>
                 </div>
